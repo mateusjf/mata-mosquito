@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <img class="game-over" src="img/game.png" alt="">
+    <button id="iniciar">Iniciar</button>
+
+    <select name="" id="dificuldade">
+        <option value="">-- Selecione --</option>
+        <option value="facil">Fácil</option>
+        <option value="medio">Médio</option>
+        <option value="dificil">Difícil</option>
+    </select>
+    <script>
+        var iniciar = () => {
+            var dificuldade = document.getElementById('dificuldade').value;
+            
+            if (dificuldade === 'facil')
+                return 'facil';
+            else if (dificuldade === 'medio')
+                return 'medio';
+            else if (dificuldade === 'dificil')
+                return 'dificil';
+            else
+                return null;
+        }
+
+        var botao = document.getElementById('iniciar');
+        botao.addEventListener('click', () => {
+            var dificuldade = iniciar();
+            if (dificuldade === null)
+                return;
+
+            window.location.href = 'app.html?' + dificuldade;
+        }, false);
+    </script>
+</body>
+</html>
